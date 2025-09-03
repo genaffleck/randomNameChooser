@@ -106,6 +106,8 @@
             <label for="csvSelect"></label>
             <select id="csvSelect">
                 <option value="Diamond.csv">9-Diamond</option>
+                <option value="Emerald.csv">9-Emerald</option>
+                <option value="Fluorite.csv">9-Fluorite</option>
                 <option value="Pearl.csv">9-Pearl</option>
                 <option value="Peridot.csv">9-Peridot</option>
                 <option value="Quartz.csv">9-Quartz</option>
@@ -119,9 +121,6 @@
         </div>
 
         <script>
-            let names = [];
-
-            // Load selected CSV
             function toTitleCase(str) {
                 return str
                     .toLowerCase() // make everything lowercase first
@@ -129,6 +128,9 @@
                     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
                     .join(" ");
             }
+            let names = [];
+
+            // Load selected CSV
 
             function loadCSV() {
                 const fileName = document.getElementById("csvSelect").value;
@@ -168,7 +170,7 @@
                 spinner.style.display = "block";
                 result.textContent = "";
 
-                // Wait 5 seconds, then show random name
+                // Wait x seconds, then show random name
                 setTimeout(() => {
                     spinner.style.display = "none";
                     const randomIndex = Math.floor(
@@ -176,7 +178,7 @@
                     );
                     const randomName = names[randomIndex];
                     result.textContent = "🎉 " + randomName + " 🎉";
-                }, 2000);
+                }, 1000);
             }
         </script>
     </body>
